@@ -4,6 +4,7 @@
 #include <muduo/base/Logging.h>
 #include <string>
 #include <vector>
+#include <map>
 
 using namespace muduo;
 using namespace std::placeholders;
@@ -19,6 +20,7 @@ ChatService::ChatService()
     m_handlers[LOGIN_MSG] = std::bind(&ChatService::login, this, _1, _2, _3);
     m_handlers[REG_MSG] = std::bind(&ChatService::reg, this, _1, _2, _3);
     m_handlers[ONE_CHAT_MSG] = std::bind(&ChatService::oneChat, this, _1, _2, _3);
+    m_handlers[ADD_FRIEND_MSG] = std::bind(&ChatService::addFriend, this, _1, _2, _3);
 }
 
 MsgHandler ChatService::getHandler(int type)
@@ -70,12 +72,33 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
             response["errno"] = 0;
             response["id"] = user.getId();
             response["name"] = user.getName();
+
+            // 处理离线信息
             std::vector<std::string> message = m_offlineMsgModel.query(id);
             if (!message.empty())
             {
+                
                 response["offlinemessage"] = message;
                 m_offlineMsgModel.remove(id);
             }
+
+            // 返回好友列表
+            std::vector<User> friends = m_friendModel.query(id);
+            if (!friends.empty())
+            {
+                // 处理离线信息
+                std::vector<std::string> tmp;
+                for (auto& u : friends)
+                {
+                    json js;
+                    js["id"] = u.getId();
+                    js["name"] = u.getName();
+                    js["state"] = u.getState();
+                    tmp.push_back(js.dump());
+                }
+                response["friends"] = tmp;
+            }
+
             conn->send(response.dump());
         }
     }
@@ -155,6 +178,17 @@ void ChatService::oneChat(const TcpConnectionPtr &conn, json &js, Timestamp time
     m_offlineMsgModel.insert(to, js.dump());
 }
 
+void ChatService::addFriend(const TcpConnectionPtr &conn, json &js, Timestamp time)
+{
+    int id = js["id"].get<int>();
+    int friendid= js["friendid"].get<int>();
 
+    m_friendModel.insert(id, friendid);
+}
+
+// 
 // {"msgid":1, "id":13, "password":"123456"}   登录消息
-// {"msgid":5, "id":15, "name":"li si", "to":13, "msg":"hello"}
+// {"msgid":3, "name":"liucxi", "password":"123456"}   注册消息
+// {"msgid":5, "id":15, "name":"li si", "to":13, "msg":"hello"}    一对一聊天
+
+// {"msgid":6, "id":15, "friendid":13}    添加好友

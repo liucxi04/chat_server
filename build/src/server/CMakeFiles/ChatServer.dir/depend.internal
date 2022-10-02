@@ -4,6 +4,7 @@
 src/server/CMakeFiles/ChatServer.dir/chat_server.cpp.o
  ../include/server/chat_server.h
  ../include/server/chat_service.h
+ ../include/server/friend_model.h
  ../include/server/offline_message_model.h
  ../include/server/user.h
  ../include/server/user_model.h
@@ -12,6 +13,7 @@ src/server/CMakeFiles/ChatServer.dir/chat_server.cpp.o
 src/server/CMakeFiles/ChatServer.dir/chat_service.cpp.o
  ../include/public.h
  ../include/server/chat_service.h
+ ../include/server/friend_model.h
  ../include/server/offline_message_model.h
  ../include/server/user.h
  ../include/server/user_model.h
@@ -20,9 +22,15 @@ src/server/CMakeFiles/ChatServer.dir/chat_service.cpp.o
 src/server/CMakeFiles/ChatServer.dir/db/db.cpp.o
  ../include/server/db/db.h
  /home/ubuntu/server/chat_server/src/server/db/db.cpp
+src/server/CMakeFiles/ChatServer.dir/friend_model.cpp.o
+ ../include/server/db/db.h
+ ../include/server/friend_model.h
+ ../include/server/user.h
+ /home/ubuntu/server/chat_server/src/server/friend_model.cpp
 src/server/CMakeFiles/ChatServer.dir/main.cpp.o
  ../include/server/chat_server.h
  ../include/server/chat_service.h
+ ../include/server/friend_model.h
  ../include/server/offline_message_model.h
  ../include/server/user.h
  ../include/server/user_model.h

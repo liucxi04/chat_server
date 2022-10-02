@@ -11,6 +11,11 @@
 },
 {
   "directory": "/home/ubuntu/server/chat_server/build/src/server",
+  "command": "/usr/bin/g++   -I/home/ubuntu/server/chat_server/thirdparty -I/home/ubuntu/server/chat_server/include -I/home/ubuntu/server/chat_server/include/server -I/home/ubuntu/server/chat_server/include/server/db  -g -g   -o CMakeFiles/ChatServer.dir/friend_model.cpp.o -c /home/ubuntu/server/chat_server/src/server/friend_model.cpp",
+  "file": "/home/ubuntu/server/chat_server/src/server/friend_model.cpp"
+},
+{
+  "directory": "/home/ubuntu/server/chat_server/build/src/server",
   "command": "/usr/bin/g++   -I/home/ubuntu/server/chat_server/thirdparty -I/home/ubuntu/server/chat_server/include -I/home/ubuntu/server/chat_server/include/server -I/home/ubuntu/server/chat_server/include/server/db  -g -g   -o CMakeFiles/ChatServer.dir/main.cpp.o -c /home/ubuntu/server/chat_server/src/server/main.cpp",
   "file": "/home/ubuntu/server/chat_server/src/server/main.cpp"
 },

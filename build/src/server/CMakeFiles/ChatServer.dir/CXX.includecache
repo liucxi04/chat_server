@@ -29,11 +29,19 @@ user_model.h
 ../include/server/user_model.h
 offline_message_model.h
 ../include/server/offline_message_model.h
+friend_model.h
+../include/server/friend_model.h
 
 ../include/server/db/db.h
 mysql/mysql.h
 -
 string
+-
+
+../include/server/friend_model.h
+user.h
+../include/server/user.h
+vector
 -
 
 ../include/server/offline_message_model.h
@@ -403,12 +411,20 @@ string
 -
 vector
 -
+map
+-
 
 /home/ubuntu/server/chat_server/src/server/db/db.cpp
 db.h
 /home/ubuntu/server/chat_server/src/server/db/db.h
 muduo/base/Logging.h
 -
+
+/home/ubuntu/server/chat_server/src/server/friend_model.cpp
+friend_model.h
+/home/ubuntu/server/chat_server/src/server/friend_model.h
+db.h
+/home/ubuntu/server/chat_server/src/server/db.h
 
 /home/ubuntu/server/chat_server/src/server/main.cpp
 chat_server.h
