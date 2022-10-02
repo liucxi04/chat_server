@@ -27,11 +27,19 @@ json.hpp
 ../include/server/json.hpp
 user_model.h
 ../include/server/user_model.h
+offline_message_model.h
+../include/server/offline_message_model.h
 
 ../include/server/db/db.h
 mysql/mysql.h
 -
 string
+-
+
+../include/server/offline_message_model.h
+string
+-
+vector
 -
 
 ../include/server/user.h
@@ -393,6 +401,8 @@ muduo/base/Logging.h
 -
 string
 -
+vector
+-
 
 /home/ubuntu/server/chat_server/src/server/db/db.cpp
 db.h
@@ -403,6 +413,12 @@ muduo/base/Logging.h
 /home/ubuntu/server/chat_server/src/server/main.cpp
 chat_server.h
 /home/ubuntu/server/chat_server/src/server/chat_server.h
+
+/home/ubuntu/server/chat_server/src/server/offline_message_model.cpp
+offline_message_model.h
+/home/ubuntu/server/chat_server/src/server/offline_message_model.h
+db.h
+/home/ubuntu/server/chat_server/src/server/db.h
 
 /home/ubuntu/server/chat_server/src/server/user_model.cpp
 user_model.h
