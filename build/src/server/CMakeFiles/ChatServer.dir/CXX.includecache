@@ -413,6 +413,10 @@ muduo/base/Logging.h
 /home/ubuntu/server/chat_server/src/server/main.cpp
 chat_server.h
 /home/ubuntu/server/chat_server/src/server/chat_server.h
+chat_service.h
+/home/ubuntu/server/chat_server/src/server/chat_service.h
+signal.h
+-
 
 /home/ubuntu/server/chat_server/src/server/offline_message_model.cpp
 offline_message_model.h

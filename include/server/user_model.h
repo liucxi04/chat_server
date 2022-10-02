@@ -11,6 +11,8 @@ public:
     User query(int id);
 
     bool updateState(User user);
+
+    bool resetState();
 };
 
 #endif

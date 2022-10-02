@@ -131,6 +131,11 @@ void ChatService::clientCloseException(const TcpConnectionPtr &conn)
     m_userModel.updateState(user);
 }
 
+void ChatService::reset()
+{
+    m_userModel.resetState();
+}
+
 void ChatService::oneChat(const TcpConnectionPtr &conn, json &js, Timestamp time)
 {
     int to = js["to"].get<int>();

@@ -31,6 +31,9 @@ public:
     // 处理用户异常退出
     void clientCloseException(const TcpConnectionPtr &conn);
 
+    // 处理服务器异常退出
+    void reset();
+
     MsgHandler getHandler(int type);
 
 private:

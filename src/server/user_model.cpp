@@ -41,6 +41,7 @@ User UserModel::query(int id)
                 user.setPassword(row[2]);
                 user.setState(row[3]);
             }
+            mysql_free_result(res);
         }
     }
 
@@ -51,6 +52,22 @@ bool UserModel::updateState(User user)
 {
     char sql[1024] = {0};
     sprintf(sql, "update user set state = '%s' where id = %d", user.getState().c_str(), user.getId());
+
+    MySQL mysql;
+
+    if (mysql.connect())
+    {
+        if (mysql.update(sql))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool UserModel::resetState()
+{
+    char sql[1024] = "update user set state = 'offline' where state = 'online'";
 
     MySQL mysql;
 
