@@ -3,6 +3,7 @@
 
 #include <muduo/base/Logging.h>
 #include <string>
+#include <vector>
 
 using namespace muduo;
 using namespace std::placeholders;
@@ -17,6 +18,7 @@ ChatService::ChatService()
 {
     m_handlers[LOGIN_MSG] = std::bind(&ChatService::login, this, _1, _2, _3);
     m_handlers[REG_MSG] = std::bind(&ChatService::reg, this, _1, _2, _3);
+    m_handlers[ONE_CHAT_MSG] = std::bind(&ChatService::oneChat, this, _1, _2, _3);
 }
 
 MsgHandler ChatService::getHandler(int type)
@@ -35,10 +37,10 @@ MsgHandler ChatService::getHandler(int type)
         return it->second;
     }
 }
-// 登录
+
 void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
 {
-    int id = js["id"];
+    int id = js["id"].get<int>();
     std::string password = js["password"];
 
     User user = m_userModel.query(id);
@@ -68,6 +70,12 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
             response["errno"] = 0;
             response["id"] = user.getId();
             response["name"] = user.getName();
+            std::vector<std::string> message = m_offlineMsgModel.query(id);
+            if (!message.empty())
+            {
+                response["offlinemessage"] = message;
+                m_offlineMsgModel.remove(id);
+            }
             conn->send(response.dump());
         }
     }
@@ -79,7 +87,7 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
         conn->send(response.dump());
     }
 }
-// 注册
+
 void ChatService::reg(const TcpConnectionPtr &conn, json &js, Timestamp time)
 {
     std::string name = js["name"];
@@ -122,3 +130,26 @@ void ChatService::clientCloseException(const TcpConnectionPtr &conn)
     user.setState("offline");
     m_userModel.updateState(user);
 }
+
+void ChatService::oneChat(const TcpConnectionPtr &conn, json &js, Timestamp time)
+{
+    int to = js["to"].get<int>();
+
+    {
+        std::lock_guard<std::mutex> lock(m_mutex);
+        auto it = m_userConn.find(to);
+        if (it != m_userConn.end())
+        {
+            // 在线，转发消息
+            it->second->send(js.dump());
+            return;
+        }
+    }
+
+    // 不在线，存储离线消息
+    m_offlineMsgModel.insert(to, js.dump());
+}
+
+
+// {"msgid":1, "id":13, "password":"123456"}   登录消息
+// {"msgid":5, "id":15, "name":"li si", "to":13, "msg":"hello"}
