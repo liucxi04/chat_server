@@ -3,7 +3,26 @@
 
 src/server/CMakeFiles/ChatServer.dir/chat_server.cpp.o
  ../include/server/chat_server.h
+ ../include/server/chat_service.h
+ ../include/server/user.h
+ ../include/server/user_model.h
+ ../thirdparty/json.hpp
  /home/ubuntu/server/chat_server/src/server/chat_server.cpp
+src/server/CMakeFiles/ChatServer.dir/chat_service.cpp.o
+ ../include/public.h
+ ../include/server/chat_service.h
+ ../include/server/user.h
+ ../include/server/user_model.h
+ ../thirdparty/json.hpp
+ /home/ubuntu/server/chat_server/src/server/chat_service.cpp
+src/server/CMakeFiles/ChatServer.dir/db/db.cpp.o
+ ../include/server/db/db.h
+ /home/ubuntu/server/chat_server/src/server/db/db.cpp
 src/server/CMakeFiles/ChatServer.dir/main.cpp.o
  ../include/server/chat_server.h
  /home/ubuntu/server/chat_server/src/server/main.cpp
+src/server/CMakeFiles/ChatServer.dir/user_model.cpp.o
+ ../include/server/db/db.h
+ ../include/server/user.h
+ ../include/server/user_model.h
+ /home/ubuntu/server/chat_server/src/server/user_model.cpp

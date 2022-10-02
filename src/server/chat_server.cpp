@@ -1,4 +1,5 @@
 #include "chat_server.h"
+#include "chat_service.h"
 
 #include <functional>
 #include <string>
@@ -28,6 +29,7 @@ void ChatServer::onConnection(const TcpConnectionPtr &conn)
 {
     if (!conn->connected())
     {
+        ChatService::instance()->clientCloseException(conn);
         conn->shutdown();
     }
 }
@@ -36,5 +38,8 @@ void ChatServer::onMessage(const TcpConnectionPtr &conn,
                            Buffer *buffer,
                            Timestamp time)
 {
-
+    string buf = buffer->retrieveAllAsString();
+    json js = json::parse(buf);
+    auto msgHandler = ChatService::instance()->getHandler(js["msgid"].get<int>());
+    msgHandler(conn, js, time);
 }

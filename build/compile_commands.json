@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/ubuntu/server/chat_server/build/src/server",
+  "command": "/usr/bin/g++   -I/home/ubuntu/server/chat_server/thirdparty -I/home/ubuntu/server/chat_server/include -I/home/ubuntu/server/chat_server/include/server -I/home/ubuntu/server/chat_server/include/server/db  -g -g   -o CMakeFiles/ChatServer.dir/chat_server.cpp.o -c /home/ubuntu/server/chat_server/src/server/chat_server.cpp",
+  "file": "/home/ubuntu/server/chat_server/src/server/chat_server.cpp"
+},
+{
+  "directory": "/home/ubuntu/server/chat_server/build/src/server",
+  "command": "/usr/bin/g++   -I/home/ubuntu/server/chat_server/thirdparty -I/home/ubuntu/server/chat_server/include -I/home/ubuntu/server/chat_server/include/server -I/home/ubuntu/server/chat_server/include/server/db  -g -g   -o CMakeFiles/ChatServer.dir/chat_service.cpp.o -c /home/ubuntu/server/chat_server/src/server/chat_service.cpp",
+  "file": "/home/ubuntu/server/chat_server/src/server/chat_service.cpp"
+},
+{
+  "directory": "/home/ubuntu/server/chat_server/build/src/server",
+  "command": "/usr/bin/g++   -I/home/ubuntu/server/chat_server/thirdparty -I/home/ubuntu/server/chat_server/include -I/home/ubuntu/server/chat_server/include/server -I/home/ubuntu/server/chat_server/include/server/db  -g -g   -o CMakeFiles/ChatServer.dir/main.cpp.o -c /home/ubuntu/server/chat_server/src/server/main.cpp",
+  "file": "/home/ubuntu/server/chat_server/src/server/main.cpp"
+},
+{
+  "directory": "/home/ubuntu/server/chat_server/build/src/server",
+  "command": "/usr/bin/g++   -I/home/ubuntu/server/chat_server/thirdparty -I/home/ubuntu/server/chat_server/include -I/home/ubuntu/server/chat_server/include/server -I/home/ubuntu/server/chat_server/include/server/db  -g -g   -o CMakeFiles/ChatServer.dir/user_model.cpp.o -c /home/ubuntu/server/chat_server/src/server/user_model.cpp",
+  "file": "/home/ubuntu/server/chat_server/src/server/user_model.cpp"
+},
+{
+  "directory": "/home/ubuntu/server/chat_server/build/src/server",
+  "command": "/usr/bin/g++   -I/home/ubuntu/server/chat_server/thirdparty -I/home/ubuntu/server/chat_server/include -I/home/ubuntu/server/chat_server/include/server -I/home/ubuntu/server/chat_server/include/server/db  -g -g   -o CMakeFiles/ChatServer.dir/db/db.cpp.o -c /home/ubuntu/server/chat_server/src/server/db/db.cpp",
+  "file": "/home/ubuntu/server/chat_server/src/server/db/db.cpp"
+}
+]

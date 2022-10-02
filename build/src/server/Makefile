@@ -152,6 +152,60 @@ chat_server.cpp.s:
 	cd /home/ubuntu/server/chat_server/build && $(MAKE) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/chat_server.cpp.s
 .PHONY : chat_server.cpp.s
 
+chat_service.o: chat_service.cpp.o
+
+.PHONY : chat_service.o
+
+# target to build an object file
+chat_service.cpp.o:
+	cd /home/ubuntu/server/chat_server/build && $(MAKE) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/chat_service.cpp.o
+.PHONY : chat_service.cpp.o
+
+chat_service.i: chat_service.cpp.i
+
+.PHONY : chat_service.i
+
+# target to preprocess a source file
+chat_service.cpp.i:
+	cd /home/ubuntu/server/chat_server/build && $(MAKE) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/chat_service.cpp.i
+.PHONY : chat_service.cpp.i
+
+chat_service.s: chat_service.cpp.s
+
+.PHONY : chat_service.s
+
+# target to generate assembly for a file
+chat_service.cpp.s:
+	cd /home/ubuntu/server/chat_server/build && $(MAKE) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/chat_service.cpp.s
+.PHONY : chat_service.cpp.s
+
+db/db.o: db/db.cpp.o
+
+.PHONY : db/db.o
+
+# target to build an object file
+db/db.cpp.o:
+	cd /home/ubuntu/server/chat_server/build && $(MAKE) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/db/db.cpp.o
+.PHONY : db/db.cpp.o
+
+db/db.i: db/db.cpp.i
+
+.PHONY : db/db.i
+
+# target to preprocess a source file
+db/db.cpp.i:
+	cd /home/ubuntu/server/chat_server/build && $(MAKE) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/db/db.cpp.i
+.PHONY : db/db.cpp.i
+
+db/db.s: db/db.cpp.s
+
+.PHONY : db/db.s
+
+# target to generate assembly for a file
+db/db.cpp.s:
+	cd /home/ubuntu/server/chat_server/build && $(MAKE) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/db/db.cpp.s
+.PHONY : db/db.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -179,6 +233,33 @@ main.cpp.s:
 	cd /home/ubuntu/server/chat_server/build && $(MAKE) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+user_model.o: user_model.cpp.o
+
+.PHONY : user_model.o
+
+# target to build an object file
+user_model.cpp.o:
+	cd /home/ubuntu/server/chat_server/build && $(MAKE) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/user_model.cpp.o
+.PHONY : user_model.cpp.o
+
+user_model.i: user_model.cpp.i
+
+.PHONY : user_model.i
+
+# target to preprocess a source file
+user_model.cpp.i:
+	cd /home/ubuntu/server/chat_server/build && $(MAKE) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/user_model.cpp.i
+.PHONY : user_model.cpp.i
+
+user_model.s: user_model.cpp.s
+
+.PHONY : user_model.s
+
+# target to generate assembly for a file
+user_model.cpp.s:
+	cd /home/ubuntu/server/chat_server/build && $(MAKE) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/user_model.cpp.s
+.PHONY : user_model.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -191,9 +272,18 @@ help:
 	@echo "... chat_server.o"
 	@echo "... chat_server.i"
 	@echo "... chat_server.s"
+	@echo "... chat_service.o"
+	@echo "... chat_service.i"
+	@echo "... chat_service.s"
+	@echo "... db/db.o"
+	@echo "... db/db.i"
+	@echo "... db/db.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... user_model.o"
+	@echo "... user_model.i"
+	@echo "... user_model.s"
 .PHONY : help
 
 
