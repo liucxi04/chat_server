@@ -4,44 +4,60 @@
 src/server/CMakeFiles/ChatServer.dir/chat_server.cpp.o
  ../include/server/chat_server.h
  ../include/server/chat_service.h
- ../include/server/friend_model.h
- ../include/server/offline_message_model.h
- ../include/server/user.h
- ../include/server/user_model.h
+ ../include/server/model/friend_model.h
+ ../include/server/model/group.h
+ ../include/server/model/group_model.h
+ ../include/server/model/group_user.h
+ ../include/server/model/offline_message_model.h
+ ../include/server/model/user.h
+ ../include/server/model/user_model.h
  ../thirdparty/json.hpp
  /home/ubuntu/server/chat_server/src/server/chat_server.cpp
 src/server/CMakeFiles/ChatServer.dir/chat_service.cpp.o
  ../include/public.h
  ../include/server/chat_service.h
- ../include/server/friend_model.h
- ../include/server/offline_message_model.h
- ../include/server/user.h
- ../include/server/user_model.h
+ ../include/server/model/friend_model.h
+ ../include/server/model/group.h
+ ../include/server/model/group_model.h
+ ../include/server/model/group_user.h
+ ../include/server/model/offline_message_model.h
+ ../include/server/model/user.h
+ ../include/server/model/user_model.h
  ../thirdparty/json.hpp
  /home/ubuntu/server/chat_server/src/server/chat_service.cpp
 src/server/CMakeFiles/ChatServer.dir/db/db.cpp.o
  ../include/server/db/db.h
  /home/ubuntu/server/chat_server/src/server/db/db.cpp
-src/server/CMakeFiles/ChatServer.dir/friend_model.cpp.o
- ../include/server/db/db.h
- ../include/server/friend_model.h
- ../include/server/user.h
- /home/ubuntu/server/chat_server/src/server/friend_model.cpp
 src/server/CMakeFiles/ChatServer.dir/main.cpp.o
  ../include/server/chat_server.h
  ../include/server/chat_service.h
- ../include/server/friend_model.h
- ../include/server/offline_message_model.h
- ../include/server/user.h
- ../include/server/user_model.h
+ ../include/server/model/friend_model.h
+ ../include/server/model/group.h
+ ../include/server/model/group_model.h
+ ../include/server/model/group_user.h
+ ../include/server/model/offline_message_model.h
+ ../include/server/model/user.h
+ ../include/server/model/user_model.h
  ../thirdparty/json.hpp
  /home/ubuntu/server/chat_server/src/server/main.cpp
-src/server/CMakeFiles/ChatServer.dir/offline_message_model.cpp.o
+src/server/CMakeFiles/ChatServer.dir/model/friend_model.cpp.o
  ../include/server/db/db.h
- ../include/server/offline_message_model.h
- /home/ubuntu/server/chat_server/src/server/offline_message_model.cpp
-src/server/CMakeFiles/ChatServer.dir/user_model.cpp.o
+ ../include/server/model/friend_model.h
+ ../include/server/model/user.h
+ /home/ubuntu/server/chat_server/src/server/model/friend_model.cpp
+src/server/CMakeFiles/ChatServer.dir/model/group_model.cpp.o
  ../include/server/db/db.h
- ../include/server/user.h
- ../include/server/user_model.h
- /home/ubuntu/server/chat_server/src/server/user_model.cpp
+ ../include/server/model/group.h
+ ../include/server/model/group_model.h
+ ../include/server/model/group_user.h
+ ../include/server/model/user.h
+ /home/ubuntu/server/chat_server/src/server/model/group_model.cpp
+src/server/CMakeFiles/ChatServer.dir/model/offline_message_model.cpp.o
+ ../include/server/db/db.h
+ ../include/server/model/offline_message_model.h
+ /home/ubuntu/server/chat_server/src/server/model/offline_message_model.cpp
+src/server/CMakeFiles/ChatServer.dir/model/user_model.cpp.o
+ ../include/server/db/db.h
+ ../include/server/model/user.h
+ ../include/server/model/user_model.h
+ /home/ubuntu/server/chat_server/src/server/model/user_model.cpp
