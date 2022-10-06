@@ -56,6 +56,7 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
             json response;
             response["msgid"] = MsgType::LOGIN_MSG_ACK;
             response["errno"] = 2;
+            response["errmsg"] = "this account is using, input another!";
             conn->send(response.dump());
         }
         else
@@ -110,6 +111,7 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
         json response;
         response["msgid"] = MsgType::LOGIN_MSG_ACK;
         response["errno"] = 1;
+        response["errmsg"] = "account id or password errro!";
         conn->send(response.dump());
     }
 }
