@@ -6,5 +6,5 @@ CXX_FLAGS = -g -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ubuntu/server/chat_server/thirdparty -I/home/ubuntu/server/chat_server/include -I/home/ubuntu/server/chat_server/include/server -I/home/ubuntu/server/chat_server/include/server/db -I/home/ubuntu/server/chat_server/include/server/model 
+CXX_INCLUDES = -I/home/ubuntu/server/chat_server/thirdparty -I/home/ubuntu/server/chat_server/include -I/home/ubuntu/server/chat_server/include/server -I/home/ubuntu/server/chat_server/include/server/db -I/home/ubuntu/server/chat_server/include/server/model -I/home/ubuntu/server/chat_server/include/server/redis 
 
