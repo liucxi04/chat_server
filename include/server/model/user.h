@@ -3,11 +3,10 @@
 
 #include <string>
 
-class User
-{
+class User {
 public:
     User(int id = -1, std::string name = "", std::string password = "", std::string state = "offline")
-        : m_id(id), m_name(name), m_password(password), m_state(state) {}
+            : m_id(id), m_name(name), m_password(password), m_state(state) {}
 
     void setId(int id) { m_id = id; }
 

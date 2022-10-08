@@ -5,15 +5,14 @@
 #include <vector>
 #include <string>
 
-class GroupModel
-{
+class GroupModel {
 public:
     // 创建群组
     bool createGroup(Group &group);
 
     // 加入群组
     bool addGroup(int userid, int groupid, std::string role);
-    
+
     // 查询用户所在群组
     std::vector<Group> queryGroups(int userid);
 

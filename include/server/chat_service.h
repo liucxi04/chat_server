@@ -18,10 +18,10 @@ using json = nlohmann::json;
 
 typedef std::function<void(const TcpConnectionPtr &conn, json &js, Timestamp time)> MsgHandler;
 
-class ChatService
-{
+class ChatService {
 public:
     static ChatService *instance();
+
     // 登录
     void login(const TcpConnectionPtr &conn, json &js, Timestamp time);
 
@@ -65,7 +65,7 @@ private:
     FriendModel m_friendModel;
 
     GroupModel m_groupModel;
-    
+
     std::mutex m_mutex;
 };
 

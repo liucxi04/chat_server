@@ -3,8 +3,7 @@
 
 #include "user.h"
 
-class GroupUser : public User
-{
+class GroupUser : public User {
 public:
     void setRole(std::string role) { m_role = role; }
 

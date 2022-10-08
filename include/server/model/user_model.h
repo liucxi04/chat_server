@@ -3,8 +3,7 @@
 
 #include "user.h"
 
-class UserModel
-{
+class UserModel {
 public:
     bool insert(User &user);
 

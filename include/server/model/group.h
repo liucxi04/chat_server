@@ -6,11 +6,10 @@
 #include <string>
 #include <vector>
 
-class Group
-{
+class Group {
 public:
     Group(int id = -1, std::string name = "", std::string desc = "")
-        : m_id(id), m_name(name), m_desc(desc) {}
+            : m_id(id), m_name(name), m_desc(desc) {}
 
     void setId(int id) { m_id = id; }
 

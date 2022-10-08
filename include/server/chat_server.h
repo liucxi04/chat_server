@@ -7,14 +7,14 @@
 using namespace muduo;
 using namespace muduo::net;
 
-class ChatServer
-{
+class ChatServer {
 public:
     // 初始化聊天服务器
     ChatServer(EventLoop *loop, const InetAddress &listenAddr, const string &nameArg);
 
     // 启动服务
     void start();
+
 private:
     void onConnection(const TcpConnectionPtr &conn);
 

@@ -4,8 +4,7 @@
 #include <string>
 #include <vector>
 
-class OfflineMsgModel
-{
+class OfflineMsgModel {
 public:
     bool insert(int userid, std::string msg);
 

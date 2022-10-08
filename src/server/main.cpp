@@ -3,13 +3,12 @@
 #include <signal.h>
 
 // 处理服务器 CTRL + C 结束运行
-void resetHandler(int)
-{
+void resetHandler(int) {
     ChatService::instance()->reset();
     exit(0);
 }
-int main()
-{
+
+int main() {
     signal(SIGINT, resetHandler);
 
     EventLoop loop;

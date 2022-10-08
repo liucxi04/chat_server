@@ -1,16 +1,13 @@
 #include "friend_model.h"
 #include "db.h"
 
-bool FriendModel::insert(int id, int friendid)
-{
+bool FriendModel::insert(int id, int friendid) {
     char sql[1024] = {0};
     sprintf(sql, "insert into friend values(%d, %d)", id, friendid);
 
     MySQL mysql;
-    if (mysql.connect())
-    {
-        if (mysql.update(sql))
-        {
+    if (mysql.connect()) {
+        if (mysql.update(sql)) {
             return true;
         }
     }
@@ -18,21 +15,18 @@ bool FriendModel::insert(int id, int friendid)
     return false;
 }
 
-std::vector<User> FriendModel::query(int id)
-{
+std::vector<User> FriendModel::query(int id) {
     char sql[1024] = {0};
-    sprintf(sql, "select id, name, state from user inner join friend on friend.friendid = user.id where userid = %d", id);
+    sprintf(sql, "select id, name, state from user inner join friend on friend.friendid = user.id where userid = %d",
+            id);
 
     MySQL mysql;
     std::vector<User> friends;
-    if (mysql.connect())
-    {
+    if (mysql.connect()) {
         MYSQL_RES *res = mysql.query(sql);
-        if (res != nullptr)
-        {
+        if (res != nullptr) {
             MYSQL_ROW row;
-            while ((row = mysql_fetch_row(res)) != nullptr)
-            {
+            while ((row = mysql_fetch_row(res)) != nullptr) {
                 User user(atoi(row[0]), row[1], "", row[2]);
                 friends.push_back(user);
             }

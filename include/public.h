@@ -1,8 +1,7 @@
 #ifndef PUBLIC
 #define PUBLIC
 
-enum MsgType
-{
+enum MsgType {
     LOGIN_MSG = 1,  // 登录消息
     LOGIN_MSG_ACK,  // 登录相应消息
     LOGOUT_MSG,     // 退出
