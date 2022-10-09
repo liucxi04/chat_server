@@ -19,9 +19,9 @@ bool GroupModel::createGroup(Group &group) {
 }
 
 // 加入群组
-bool GroupModel::addGroup(int userid, int groupid, std::string role) {
+bool GroupModel::addGroup(int user_id, int group_id, const std::string& role) {
     char sql[1024] = {0};
-    sprintf(sql, "insert into groupuser values(%d, %d, '%s')", groupid, userid, role.c_str());
+    sprintf(sql, "insert into groupuser values(%d, %d, '%s')", group_id, user_id, role.c_str());
 
     MySQL mysql;
     if (mysql.connect()) {
@@ -34,11 +34,11 @@ bool GroupModel::addGroup(int userid, int groupid, std::string role) {
 }
 
 // 查询用户所在群组
-std::vector<Group> GroupModel::queryGroups(int userid) {
+std::vector<Group> GroupModel::queryGroups(int user_id) {
     char sql[1024] = {0};
     sprintf(sql, "select a.id, a.groupname, a.groupdesc from allgroup a inner join \
         groupuser b on a.id = b.groupid where b.userid = %d",
-            userid);
+            user_id);
 
     MySQL mysql;
     std::vector<Group> groups;
@@ -81,9 +81,9 @@ std::vector<Group> GroupModel::queryGroups(int userid) {
 }
 
 // 查询群组用户列表，用于发送群消息
-std::vector<int> GroupModel::queryGroupUsers(int userid, int groupid) {
+std::vector<int> GroupModel::queryGroupUsers(int user_id, int group_id) {
     char sql[1024] = {0};
-    sprintf(sql, "select userid from groupuser where groupid = %d and userid != %d", groupid, userid);
+    sprintf(sql, "select userid from groupuser where groupid = %d and userid != %d", group_id, user_id);
 
     MySQL mysql;
     std::vector<int> ids;

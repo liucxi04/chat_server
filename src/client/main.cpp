@@ -245,8 +245,8 @@ void doLoginResponse(json &responsejs) {
         showCurrentUserData();
 
         // 显示当前用户的离线消息  个人聊天信息或者群组消息
-        if (responsejs.contains("offlinemsg")) {
-            vector<string> vec = responsejs["offlinemsg"];
+        if (responsejs.contains("offlinemessage")) {
+            vector<string> vec = responsejs["offlinemessage"];
             for (string &str: vec) {
                 json js = json::parse(str);
                 // time + [id] + name + " said: " + xxx
@@ -513,7 +513,7 @@ void groupchat(int clientfd, string str) {
 // "loginout" command handler
 void loginout(int clientfd, string) {
     json js;
-    js["msgid"] = LOGINOUT_MSG;
+    js["msgid"] = LOGOUT_MSG;
     js["id"] = g_currentUser.getId();
     string buffer = js.dump();
 

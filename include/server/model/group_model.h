@@ -1,5 +1,5 @@
-#ifndef GROUPMODEL
-#define GROUPMODEL
+#ifndef GROUP_MODEL
+#define GROUP_MODEL
 
 #include "group.h"
 #include <vector>
@@ -11,13 +11,13 @@ public:
     bool createGroup(Group &group);
 
     // 加入群组
-    bool addGroup(int userid, int groupid, std::string role);
+    bool addGroup(int user_id, int group_id, const std::string& role);
 
     // 查询用户所在群组
-    std::vector<Group> queryGroups(int userid);
+    std::vector<Group> queryGroups(int user_id);
 
     // 查询群组用户列表，用于发送群消息
-    std::vector<int> queryGroupUsers(int userid, int groupid);
+    std::vector<int> queryGroupUsers(int user_id, int group_id);
 
 };
 

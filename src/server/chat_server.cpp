@@ -1,9 +1,9 @@
 #include "chat_server.h"
 #include "chat_service.h"
+#include "json.hpp"
 
 #include <functional>
 #include <string>
-#include "json.hpp"
 
 using namespace std::placeholders;
 using json = nlohmann::json;

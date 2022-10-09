@@ -2,27 +2,28 @@
 #define USER
 
 #include <string>
+#include <utility>
 
 class User {
 public:
-    User(int id = -1, std::string name = "", std::string password = "", std::string state = "offline")
-            : m_id(id), m_name(name), m_password(password), m_state(state) {}
+    explicit User(int id = -1, std::string name = "", std::string password = "", std::string state = "offline")
+            : m_id(id), m_name(std::move(name)), m_password(std::move(password)), m_state(std::move(state)) {}
 
     void setId(int id) { m_id = id; }
 
-    void setName(std::string name) { m_name = name; }
+    void setName(std::string name) { m_name = std::move(name); }
 
-    void setPassword(std::string password) { m_password = password; }
+    void setPassword(std::string password) { m_password = std::move(password); }
 
-    void setState(std::string state) { m_state = state; }
+    void setState(std::string state) { m_state = std::move(state); }
 
-    int getId() { return m_id; }
+    int getId() const { return m_id; }
 
-    std::string getName() { return m_name; }
+    std::string getName() const { return m_name; }
 
-    std::string getPassword() { return m_password; }
+    std::string getPassword() const { return m_password; }
 
-    std::string getState() { return m_state; }
+    std::string getState() const { return m_state; }
 
 private:
     int m_id;

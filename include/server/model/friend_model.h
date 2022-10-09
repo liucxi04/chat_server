@@ -1,14 +1,14 @@
-#ifndef FRIENDMODEL
-#define FRIENDMODEL
+#ifndef FRIEND_MODEL
+#define FRIEND_MODEL
 
 #include "user.h"
 #include <vector>
 
 class FriendModel {
 public:
-    bool insert(int id, int friendid);
+    bool insert(int user_id, int friend_id);
 
-    std::vector<User> query(int id);
+    std::vector<User> query(int user_id);
 };
 
 #endif

@@ -22,16 +22,20 @@ MySQL::~MySQL() {
 
 // 连接数据库
 bool MySQL::connect() {
-    MYSQL *p = mysql_real_connect(m_conn, server.c_str(), user.c_str(), password.c_str(), dbname.c_str(), 3306, nullptr,
-                                  0);
+    MYSQL *p = mysql_real_connect(m_conn, server.c_str(), user.c_str(),
+                                  password.c_str(), dbname.c_str(), 3306,
+                                  nullptr, 0);
     if (p != nullptr) {
         mysql_query(m_conn, "set names gbk");
+        LOG_INFO << "connect mysql success!";
+    } else {
+        LOG_INFO << "connect mysql fail!";
     }
     return p;
 }
 
 // 更新操作
-bool MySQL::update(std::string sql) {
+bool MySQL::update(const std::string& sql) {
     if (mysql_query(m_conn, sql.c_str())) {
         LOG_INFO << __FILE__ << ":" << __LINE__ << ":" << sql << "更新失败!";
         return false;
@@ -40,7 +44,7 @@ bool MySQL::update(std::string sql) {
 }
 
 // 查询操作
-MYSQL_RES *MySQL::query(std::string sql) {
+MYSQL_RES *MySQL::query(const std::string& sql) {
     if (mysql_query(m_conn, sql.c_str())) {
         LOG_INFO << __FILE__ << ":" << __LINE__ << ":" << sql << "查询失败!";
         return nullptr;

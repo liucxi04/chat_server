@@ -1,5 +1,5 @@
-#ifndef CHATSERVICE
-#define CHATSERVICE
+#ifndef CHAT_SERVICE
+#define CHAT_SERVICE
 
 #include <muduo/net/TcpConnection.h>
 #include <unordered_map>
@@ -11,6 +11,7 @@
 #include "offline_message_model.h"
 #include "friend_model.h"
 #include "group_model.h"
+#include "redis.h"
 
 using namespace muduo;
 using namespace muduo::net;
@@ -43,6 +44,9 @@ public:
     // 群聊天
     void groupChat(const TcpConnectionPtr &conn, json &js, Timestamp time);
 
+    // 注销
+    void logout(const TcpConnectionPtr &conn, json &js, Timestamp time);
+
     // 处理用户异常退出
     void clientCloseException(const TcpConnectionPtr &conn);
 
@@ -50,6 +54,8 @@ public:
     void reset();
 
     MsgHandler getHandler(int type);
+
+    void handleRedisSubscribeMessage(int, const string&);
 
 private:
     ChatService();
@@ -67,6 +73,8 @@ private:
     GroupModel m_groupModel;
 
     std::mutex m_mutex;
+
+    Redis m_redis;
 };
 
 #endif

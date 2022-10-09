@@ -2,9 +2,9 @@
 
 #include "db.h"
 
-bool OfflineMsgModel::insert(int userid, std::string msg) {
+bool OfflineMsgModel::insert(int user_id, std::string msg) {
     char sql[1024] = {0};
-    sprintf(sql, "insert into offlinemessage values(%d, '%s')", userid, msg.c_str());
+    sprintf(sql, "insert into offlinemessage values(%d, '%s')", user_id, msg.c_str());
 
     MySQL mysql;
     if (mysql.connect()) {
@@ -16,9 +16,9 @@ bool OfflineMsgModel::insert(int userid, std::string msg) {
     return false;
 }
 
-bool OfflineMsgModel::remove(int userid) {
+bool OfflineMsgModel::remove(int user_id) {
     char sql[1024] = {0};
-    sprintf(sql, "delete from offlinemessage where userid = %d", userid);
+    sprintf(sql, "delete from offlinemessage where userid = %d", user_id);
 
     MySQL mysql;
     if (mysql.connect()) {
@@ -30,9 +30,9 @@ bool OfflineMsgModel::remove(int userid) {
     return false;
 }
 
-std::vector<std::string> OfflineMsgModel::query(int userid) {
+std::vector<std::string> OfflineMsgModel::query(int user_id) {
     char sql[1024] = {0};
-    sprintf(sql, "select message from offlinemessage where userid = %d", userid);
+    sprintf(sql, "select message from offlinemessage where userid = %d", user_id);
 
     MySQL mysql;
     std::vector<std::string> messages;
@@ -41,7 +41,7 @@ std::vector<std::string> OfflineMsgModel::query(int userid) {
         if (res != nullptr) {
             MYSQL_ROW row;
             while ((row = mysql_fetch_row(res)) != nullptr) {
-                messages.push_back(row[0]);
+                messages.emplace_back(row[0]);
             }
             mysql_free_result(res);
         }

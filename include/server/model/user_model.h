@@ -1,5 +1,5 @@
-#ifndef USERMODEL
-#define USERMODEL
+#ifndef USER_MODEL
+#define USER_MODEL
 
 #include "user.h"
 
@@ -9,7 +9,7 @@ public:
 
     User query(int id);
 
-    bool updateState(User user);
+    bool updateState(const User& user);
 
     bool resetState();
 };

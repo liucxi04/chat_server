@@ -28,20 +28,20 @@ public:
     bool unsubscribe(int channel);
 
     // 在独立线程中接收订阅通道中的消息
-    void observer_channel_message();
+    void observerChannelMessage();
 
     // 初始化向业务层上报通道消息的回调对象
-    void init_notify_handler(function<void(int, std::string)> fn);
+    void initNotifyHandler(std::function<void(int, std::string)> fn);
 
 private:
     // hiredis同步上下文对象，负责publish消息
-    redisContext *_publish_context;
+    redisContext *m_publish_context;
 
     // hiredis同步上下文对象，负责subscribe消息
-    redisContext *_subcribe_context;
+    redisContext *m_subscribe_context;
 
     // 回调操作，收到订阅的消息，给service层上报
-    function<void(int, std::string)> _notify_message_handler;
+    std::function<void(int, std::string)> m_notify_message_handler;
 };
 
 #endif
